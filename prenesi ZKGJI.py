@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 """
-QGIS Sripta za prenos Zbirnega katastra gospodarske javne infrastrukture, verzija 0.1
-
 Matjaž Mori, 
 ZUM d.o.o.
 24.10.2024
@@ -168,7 +166,7 @@ class ExampleProcessingAlgorithm(QgsProcessingAlgorithm):
         self.polygons_layers = []
         
     
-        self.temp_out_folder_path = parameters['out_folder']
+ 
       
 
         def download_file(key, url, folder_path):
@@ -217,8 +215,8 @@ class ExampleProcessingAlgorithm(QgsProcessingAlgorithm):
                 for file in os.listdir(temp_dir):
                     if file.endswith('.gpkg'):
                         gpkg_dest_path = os.path.join(temp_out_folder_path, file)
-                        #gpkg_path = os.path.join(temp_dir, file)
-                        #shutil.copy(gpkg_path, gpkg_dest_path)
+                        gpkg_path = os.path.join(temp_dir, file)
+                        shutil.copy(gpkg_path, gpkg_dest_path)
                         process_gpkg_file(gpkg_dest_path)
             return success
 
@@ -301,7 +299,7 @@ class ExampleProcessingAlgorithm(QgsProcessingAlgorithm):
                         data_date = extract_and_format_date(zip_file)
                         zip_file_path = os.path.join(temp_folder_path, zip_file)
                         feedback.pushInfo(f"Processing file: {zip_file_path}")
-                        process_zip_file(zip_file_path,self.temp_out_folder_path)
+                        process_zip_file(zip_file_path,temp_folder_path)
                     feedback.setProgress(int(current * total_c))
                 
                 out_layer_lines = parameters['out_folder']   + '\\zkgji_linije_' + data_date + '.gpkg'

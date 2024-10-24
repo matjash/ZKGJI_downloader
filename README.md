@@ -1,4 +1,4 @@
-QGIS Sripta za prenos Zbirnega katastra gospodarske javne infrastrukture, verzija 0.1
+QGIS Sripta za prenos Zbirnega katastra gospodarske javne infrastrukture.
 
 V izbrano mapo prenese Zbirni kataster gospodarske javne infrastrukture iz spletne strani https://ipi.eprostor.gov.si. 
 
